@@ -3,6 +3,8 @@
 require_relative "qinjiakit/version"
 require_relative 'qinjiakit/route'
 require_relative 'qinjiakit/configuration'
+require_relative 'qinjiakit/controller'
+require_relative 'qinjiakit/resource_controller'
 
 module Qinjiakit
 

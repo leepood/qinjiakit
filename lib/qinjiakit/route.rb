@@ -4,6 +4,7 @@ module Qinjiakit
   module Route
     def draw_routes(ns)
       namespace ns do
+        yield if block_given?
         api_controllers(ns).each do |controller|
           resources controller.underscore.to_sym
         end
@@ -21,7 +22,7 @@ module Qinjiakit
 
     def controller_compatible?(ns, controller)
       klass = "#{ns.to_s.classify}::#{controller}".constantize
-      klass.included_modules.include?(Controller)
+      klass.included_modules.include?(ResourceController)
     rescue NameError
       false
     end
